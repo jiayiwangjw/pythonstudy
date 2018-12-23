@@ -58,8 +58,9 @@ def count_types(string):
           else:
                 count5 +=1  # punctuation     
     dict =  {"upper": count1, "lower": count2, "punctuation": count5, "space": count4, "numeral": count3}     
-#    dict =  {i:dict[i] for i in dict if i !=0}      
-    dict =  {key: value for key, value in dict.items() if value is not 0}
+#    dict =  {i:dict[i] for i in dict if i !=0}   
+#any type of character that does NOT appear in the string should not be in the dictionary
+    dict =  {key: value for key, value in dict.items() if value is not 0}  
     return dict
                 
                 
