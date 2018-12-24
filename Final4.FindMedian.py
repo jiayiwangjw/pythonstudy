@@ -42,7 +42,7 @@ def find_median(file):
 #   results = median(results)   
 #   return results
     file.close()
-find_median("FindMedianInput.txt")
+
 
 
 
