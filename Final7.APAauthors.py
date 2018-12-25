@@ -54,13 +54,19 @@ def names_to_apa(mystring):
 """
 
 
+#names = "First Last, David Joyner, and George Burdell"
 def names_to_apa(names):
     names = names.replace(', and ', ', ')
+        #'First Last, David Joyner, George Burdell'
     names = names.split(', ')
+        #['First Last', 'David Joyner', 'George Burdell']
     names = [name.split() for name in names]
+        #[['First', 'Last'], ['David', 'Joyner'], ['George', 'Burdell']]
     names = [name[-1]+', '+(''.join(initial[0]+'.' for initial in name[:-1])) for name in names]
+        #['Last, F.', 'Joyner, D.', 'Burdell, G.']
     names = ', '.join(names[:-1])+', & '+names[-1]
-    return names    
+        #'Last, F., Joyner, D., & Burdell, G.'
+    return names   
 
 
 #Below are some lines of code that will test your function.
