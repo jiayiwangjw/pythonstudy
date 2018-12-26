@@ -22,9 +22,10 @@ def exponent_calc(base, expo):
     if expo == 0:
         return 1
     else:
+        #Complete this line!
         return base * exponent_calc(base, (expo-1))
     
-    #Complete this line!
+    
 
 #Below are some lines of code that will test your function.
 #You can change the value of the variable(s) to test your
