@@ -61,7 +61,8 @@ class ExerciseSession:
         return self.calories
         
         
-        
+      
+    
         
 #If your code is implemented correctly, the lines below
 #will run error-free. They will result in the following
