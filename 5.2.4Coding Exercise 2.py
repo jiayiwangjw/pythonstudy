@@ -10,13 +10,13 @@
 def sort_with_select(a_list):
     
     #For each index in the list...
-    for i in range(len(a_list)):
+    for i in range(len(a_list)): # 0 0 0 0 1 1 1 2 2 3
         
         #Assume first that current item is already correct...
         minIndex = i
 
         #For each index from i to the end...
-        for j in range(i + 1, len(a_list)):
+        for j in range(i + 1, len(a_list)): #1 2 3 4 2 3 4 3 4 4
             
             #Complete the reasoning of this conditional to
             #complete the algorithm! Remember, the goal is
