@@ -20,8 +20,7 @@ def find_max_sales(lis):
     return result[0]
 
 
-"""
-#sample solution 1
+#Sample Solution 1
 #This problem uses a pretty common design pattern. You'll
 #learn about it in more detail later when we talk about
 #linear searches in Chapter 5.2, but it's possible to
@@ -72,9 +71,7 @@ def find_max_sales(movie_list):
     
     return current_max_movie
 
-"""
 
-"""
 #Sample Solution 2
 #We can make this a little bit easier, though. We don't
 #actually need to keep track of the current high-grossing
@@ -112,7 +109,7 @@ def find_max_sales(movie_list):
     #tuple:
     
     return current_max_tuple[0]
-"""
+
 
 #Below are some lines of code that will test your function.
 #You can change the value of the variable(s) to test your
