@@ -20,5 +20,20 @@ def UniqueCharacters(s):
 """
 
 
+##1.3-more Python exercises --  problem04_Flatten List
+"""
+002 Flatten a complex LIST
+"""
+# L = [['a', ['cat'], 2],[[[3]], 'dog'], 4, 5] --> ['a', 'cat', 2, 3, 'dog', 4, 5]
 
+import collections
+def flatten(L):
+    assert type(L) is list
 
+    flatList = []
+    for i in L:
+        if type(i) is not list:
+            flatList += [i]
+        else:
+            flatList += flatten(i)  #use recursion
+    return flatList   
