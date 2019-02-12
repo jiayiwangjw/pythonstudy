@@ -89,9 +89,10 @@ def anagram_check(word):
  
     from collections import defaultdict
     word_dic = defaultdict(list)  #defaultdict(list, {})
-    for a in commonwordslist:
-        word_dic[''.join(sorted(a))].append(a)
-    sorted_word = ''.join(sorted(word))
+    for a in commonwordslist:                   #a='accommodations'
+        word_dic[''.join(sorted(a))].append(a)  #''.join(sorted(a)) --> 'aaccdimmnooost' (这个作为key)   append(a)作为value
+                                #word_dic[''.join(sorted(a))].append(a) --> defaultdict(list, {'aaccdimmnooost': ['accommodations']})
+    sorted_word = ''.join(sorted(word))    #  "weird"-->'deirw'
     return word_dic[sorted_word]
 
 
