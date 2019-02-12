@@ -96,11 +96,58 @@ def anagram_check(word):
     return word_dic[sorted_word]
 
 
+##1.3-more Python exercises -- Problem07_Sorting dictionary of Letter Frequency 
+"""
+005 对string去掉非字母，变成小写
+"""
+def preprocess(S):
+    #
+    # YOUR CODE HERE
+    #
+    return ''.join([i.lower() for i in S if i.isalpha()])
+
+#a="WEljdsflajsieoioweDSLJFSDdslfjwqppjgvv"
+#-->'weljdsflajsieoiowedsljfsddslfjwqppjgvv'
+
+"""
+006 每个字母/数字出现的次数
+"""
+def count_letters(S):
+ 
+    from collections import Counter
+    counts = Counter(S)
+    return counts                  
+
+"""                   
+Counter({'D': 2,
+         'E': 1,
+         'F': 1,
+         'J': 1,
+         'L': 1,
+         'S': 2,
+         'W': 1,
+         'a': 1,
+         'd': 2,
+         'e': 2,
+         'f': 2,
+         'g': 1,
+         'i': 2,
+         'j': 4,
+         'l': 3,
+         'o': 2,
+         'p': 2,
+         'q': 1,
+         's': 3,
+         'v': 2,
+         'w': 2})                   
+"""                   
 
 
+"""
+007 创建一个字典，按字母顺序为key, 计算出每个字母出现的次数
+"""
+def find_top_letter(d):
 
-
-
-
-
-
+    t = [(l, o) for l,o in d.items()]
+    t.sort(key = lambda x: (x[1]*-1, x[0]))
+    return t[:1][0][0]
