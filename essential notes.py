@@ -64,8 +64,20 @@ grades_by_assignment = {} # Empty dictionary
 for k, a in enumerate(assignments): # 0 Exam 1, 1 Exam 2, 2 Exam 3
      grades_by_assignment[a] = [int(L[k+1]) for L in grades[1:]]    
     
+#{'Exam 1': [100, 88, 45, 59, 73, 89], 'Exam 2': [90, 99, 56, 61, 79, 97], 'Exam 3': [80, 111, 67, 67, 83, 101]}    
     
     
     
-    
-    
+"""
+006 创建一个字典,通过header作为key返回对应列的平均值
+"""
+from statistics import mean
+avg_grades_by_assignment = {a: mean(G) for a, G in grades_by_assignment.items()}
+
+#for n, g in grades_by_assignment.items():
+   #   print(n,g)
+#Exam 1 [100, 88, 45, 59, 73, 89]
+#Exam 2 [90, 99, 56, 61, 79, 97]
+#Exam 3 [80, 111, 67, 67, 83, 101]
+
+#{'Exam 1': 75.66666666666667, 'Exam 2': 80.33333333333333, 'Exam 3': 84.83333333333333}
