@@ -81,3 +81,21 @@ avg_grades_by_assignment = {a: mean(G) for a, G in grades_by_assignment.items()}
 #Exam 3 [80, 111, 67, 67, 83, 101]
 
 #{'Exam 1': 75.66666666666667, 'Exam 2': 80.33333333333333, 'Exam 3': 84.83333333333333}
+
+
+
+"""
+007 创建一个list，降序返回每行值的平均数
+"""
+rank = sorted(avg_grades_by_student, key=avg_grades_by_student.get, reverse=True)
+
+
+#['Mac', 'Foster', 'Thorny', 'Ursula', 'Rabbit', 'Farva']
+
+#=== Ranking ===
+#1. Mac: 99.33333333333333
+#2. Foster: 95.66666666666667
+#3. Thorny: 90
+#4. Ursula: 78.33333333333333
+#5. Rabbit: 62.333333333333336
+#6. Farva: 56
