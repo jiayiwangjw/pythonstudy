@@ -11,12 +11,16 @@ grades = [
 
 students = [i[0] for i in grades[1:]]  #['Thorny', 'Mac', 'Farva', 'Rabbit', 'Ursula', 'Foster']
 
+
+
 ##002 创建一个字典dict, 列值为key
 #grade_lists['Mac'] == [88, 99, 111]
 #grade_lists['Ursula'] == [73, 79, 83]
 grade_lists = {}
 for i in grades[1:]:
     grade_lists[i[0]] = [int(g) for g in i[1:]]
+
+
 
 ##003 创建一个字典dict, 列值行值同时为key
 #grade_dicts['Foster']['Exam 1'] == 89
