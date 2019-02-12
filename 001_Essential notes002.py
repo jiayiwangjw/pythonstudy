@@ -26,7 +26,6 @@ def UniqueCharacters(s):
 """
 # L = [['a', ['cat'], 2],[[[3]], 'dog'], 4, 5] --> ['a', 'cat', 2, 3, 'dog', 4, 5]
 
-import collections
 def flatten(L):
     assert type(L) is list
 
