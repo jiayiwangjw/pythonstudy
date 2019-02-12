@@ -30,7 +30,7 @@ for i in grades[1:]:
 
 
 """
-003 创建一个字典dict, 列值行值同时为key
+003 创建一个字典dict, 列值与行值同时为key
 """
 #grade_dicts['Foster']['Exam 1'] == 89
 #grade_dicts['Rabbit']['Exam 3'] == 67
@@ -46,7 +46,7 @@ for L in grades[1:]:
 
 
 """
-004 创建一个字典dict,通过key返回平均值
+004 创建一个字典dict,通过列值作为key返回该列对应的平均值
 """
 #avg_grades_by_student['Mac'] - 99.333333333
 from statistics import mean
@@ -56,8 +56,13 @@ avg_grades_by_student = {n:mean(g) for n, g in grade_lists.items() }  #grade_lis
 #'Ursula': 78.33333333333333, 'Thorny': 90}   
     
     
-    
-    
+"""
+005 创建一个字典，通过header作为key返回对应的列值
+"""
+#grades_by_assignment['Exam 1'] == [100, 88, 45, 59, 73, 89]
+grades_by_assignment = {} # Empty dictionary
+for k, a in enumerate(assignments): # 0 Exam 1, 1 Exam 2, 2 Exam 3
+     grades_by_assignment[a] = [int(L[k+1]) for L in grades[1:]]    
     
     
     
