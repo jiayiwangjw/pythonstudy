@@ -144,6 +144,8 @@ def parse_phone1 (s):
 """
 007 电话号码识别2
 """
+#it should not be sensitive to leading or trailing spaces. Also, for the patterns in which the area code is enclosed in parentheses, 
+#it should not be sensitive to the number of spaces separating the area code from the remainder of the number.
 #(404) 555-1212
 #(404) 5551212
 #404-555-1212
