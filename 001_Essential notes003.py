@@ -68,6 +68,44 @@ print (re_names3.match ('Rich Salamander Vuduc').group ('last'))  #Vuduc
 
 
 
+"""
+005 识别email地址
+"""
+#A username must begin with an alphabetic character [a-zA-Z]. It may be followed by any number of additional alphanumeric characters [\w]
+#or any of the following special characters: . (period), - (hyphen), _ (underscore), or + (plus). [.\-+]
+
+#A domain name must end with an alphabetic character [a-zA-Z]. It may consist of any of the following characters: alphanumeric characters, 
+#. (period), - (hyphen), or _ (underscore). [\w.\-]
+
+# \w | Matches alphanumeric characters, which means a-z, A-Z, and 0-9. It also matches the underscore, _.
+# *  | Greedily matches the expression to its left 0 or more times
+
+def parse_email (s):
+     pattern =   '''
+                    ^
+                    (?P<userID>[a-zA-Z][\w.\-+]*)
+                    @
+                    (?P<domain>[\w.\-]*[a-zA-Z])
+                    $
+                 '''   
+     re_names = re.compile(pattern, re.VERBOSE)
+     matches = re_names.match(s)
+     if matches:
+            return (matches.group('userID'), matches.group('domain'))
+     else:
+            raise ValueError("Incorrect email address")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
