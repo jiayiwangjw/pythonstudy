@@ -15,12 +15,9 @@ data_rows = [['GP', 'F', '18', 'U', 'GT3', 'A', '4', '4', 'at_home', 'teacher', 
 """
 001 通过List的index寻找另一个list的内容
 """
+def lookup_value(col_name, row_id, header, data_rows):
+     col_id = header.index(col_name)  # "age" --> 2
+     return data_rows[row_id][col_id] # 18
+
 #lookup_value('age', 0, math_header, math_data_rows) == '18'
 #lookup_value('G2', 3, math_header, math_data_rows) == '14'
-
-index = header.index('age')  #2
-data_rows[0][index] # 18
-
-
-
-
