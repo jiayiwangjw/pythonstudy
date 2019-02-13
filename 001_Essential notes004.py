@@ -34,14 +34,48 @@ def lookup_column_values(col, header, data_rows):
 #assert values[:5] == ['18', '17', '15', '15', '16']
 
 
+"""
+003 通过List的header信息，寻找另一个list的对应列的唯一值unique value
+"""
+
+def get_unique_values(col, header, data_rows):
+      return list(set(lookup_column_values(col, header, data_rows)))
+
+#solution2
+def get_unique_values(col, header, data_rows):
+    col_id = header.index(col)  
+    value = [row[col_id] for row in data_rows] 
+    return list(set(value))
 
 
+"""
+004  构建一个字典dw_avg_grade， key为列'Dalc'和'Walc'的各种组合(a,b)， value为该组合所对应的G3平均值
+"""
+#The column 'Dalc' contains the student's self-reported drinking frequency during the weekday
+#Similarly, 'Walc' is the self-reported drinking frequency on the same scale, but for the weekend (instead of weekday).
+print("Unique values of 'Dalc':", get_unique_values('Dalc', header, data_rows))
+Unique values of 'Dalc': ['5', '1', '4', '3', '2']
 
+#(Dalc=3, Walc=2): 12.0
+#(Dalc=4, Walc=4): 11.3
 
+from collections import defaultdict # Optional, but might help
 
+# Relevant data to analyze:
+Dalc_values = lookup_column_values('Dalc', math_header, math_data_rows)
+Walc_values = lookup_column_values('Walc', math_header, math_data_rows)
+G3_values = lookup_column_values('G3', math_header, math_data_rows)
 
+#-->{pair(a,b): mean=grade/occurances}
 
-
-
-
-
+dw_counts = defaultdict(int)  #defaultdict(int, {})
+dw_sums = defaultdict(int)
+for d, w, g3 in zip(Dalc_values, Walc_values, G3_values):
+    key = (int(d), int(w))  #required tuple (a,b)
+    value = int(g3)
+    dw_counts[key] += 1   #count the pairs {(1, 1): 42, (2, 3): 6, (1, 2): 12....}
+    dw_sums[key] += value  # {(1, 1): 468, (2, 3): 60, (1, 2): 150....}
+    
+dw_avg_grade = {}
+for key in dw_sums.keys():   #key: (1, 1)  (2, 3)  (1, 2)
+    dw_avg_grade[key] = round(dw_sums[key] / dw_counts[key], 1)  #{(1, 1): 11.1, (2, 3): 10.0, (1, 2): 12.5....}
