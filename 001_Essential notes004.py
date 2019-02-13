@@ -116,7 +116,7 @@ def calc_mean(L):
         return float(sum(L)/len(L))
 
 """
-007 CuSum 𝑆𝑡=max{0,𝑆𝑡−1+(𝑥𝑡−𝜇)}.
+007 CuSum 𝑆𝑡=max{0,𝑆𝑡−1+(𝑥𝑡−𝜇)}.    使用enumerate + append
 """
 #x = [1,1,2,4,2,4,6,8,9,1,2,3,1,2,1,5]
 #mu = 3
@@ -132,5 +132,9 @@ s5 0,       1 +2-3 -->0
 s6 0,       0 +4-3 -->1
 s7 0,       1 +6-3 -->4
 """
-
+def cusum(x, mu):
+    St = [0]
+    for j,k in enumerate(x):
+        St.append(max(0, St[j] + (k-mu)))
+    return St
 
