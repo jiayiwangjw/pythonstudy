@@ -138,3 +138,20 @@ def cusum(x, mu):
         St.append(max(0, St[j] + (k-mu)))
     return St
 
+
+
+"""
+008 输入一个数字到List，返回对应的index
+"""
+CS = [0, 0, 0, 0, 1, 0, 1, 4, 9, 8, 12, 13, 12, 10, 9, 7, 9]
+alpha = 12
+assert get_index(CS, alpha) == 11
+
+def get_index(CS, alpha):
+     for j,k in enumerate(CS):
+        if k > alpha:
+            return j
+     return -1
+     
+     
+     
