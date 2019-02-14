@@ -225,10 +225,21 @@ hamsplits__soln1()
 
 
 """
-
+007 e1 创建一个pairs dictionary, key是LIST OF LIST中的word, value是word后的word
 """
+if hamsplits == [ ['i', 'love', 'georgia', 'tech'], ['gotta', 'love', 'python'] ], 
+then
+hamdict == {'i': ['love'], 'love': ['georgia', 'python'], 'georgia': ['tech'], 'gotta': ['love']}
 
+hamdict = {}
 
-
+for sentence in hamsplits:
+    if len(sentence) == 1:
+        continue
+    for i, word in enumerate(sentence[:-1]):  #do not need the last word
+        if word not in hamdict.keys():
+            hamdict[word] = []
+        if sentence[i+1] not in hamdict[word]:
+            hamdict[word].append(sentence[i+1])
 
 
