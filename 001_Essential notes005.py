@@ -50,3 +50,76 @@ def clean_raw_locations(locs):
     return cleaned   #['Cleveland', 'Cibolo', 'Beach City', 'College Station']
 
 
+
+"""
+003 e2 给出一个数值范围，查找出LIST OF LIST中对应的LIST
+"""
+[[27, 'Cleveland'],
+[149, 'Cibolo'],
+[59, 'Beach City'],
+[60, 'College Station'],
+[75, 'Colleyville']]
+ 
+filterdata(data, 50, 100) would return [[59, 'Beach City'], [60, 'College Station'], [75, 'Colleyville']]
+
+def filterdata(data, low, high):
+      return [i for i in data if i[0] >= low and i[0] <= high]   #i[0] 27 149 59 60 75
+ 
+ 
+ 
+"""
+004 e3 找出LIST中每个值的发生次数，输出为字典DICT
+"""
+findcount(['Cleveland','Austin','Dallas','Austin','Cleveland']) == {'Cleveland':2, 'Austin':2, 'Dallas':1}
+ 
+def findcount(s):  #solution 1
+     from collections import defaultdict
+     items = defaultdict(int)
+     for i in s:
+        items[i] += 1
+     return dict(items)
+
+def findcount__version1(s):  #solution 2
+     from collections import Counter
+     return dict(Counter(s))
+ 
+ 
+ 
+"""
+005 e4 按价格范围，以字典的形式，排出搜索排前三名的城市
+"""
+
+result2 = {'Price 0-50': ['Coppell', 'Colleyville', 'Carrollton'],
+           'Price 51-100': ['Bellaire', 'Alvin', 'Alamo Heights'],
+           'Price 101-200': ['Bayou Vista', 'Center Point', 'Corpus Christi'], 
+           'Price 201-10000': ['Baffin Bay', 'Burnet', 'Buchanan Dam']}
+
+
+TopCities = {}
+#
+
+zerofifty = filterdata(Master_list,0,50)
+fiftyhundred = filterdata(Master_list,51,100)
+hundredtwohundred = filterdata(Master_list,101,200)
+twohundredplus = filterdata(Master_list,201,10000)
+
+def citiescounts(data):
+        cities = [i[1] for i in data]
+        cities_counts = findcount(cities)
+        return cities_counts
+
+zerofifty_citycounts = citiescounts(zerofifty)
+fiftyhundred_citycounts = citiescounts(fiftyhundred)
+hundredtwohundred_citycounts = citiescounts(hundredtwohundred)
+twohundredplus_citycounts = citiescounts(twohundredplus)
+
+def topthree(d):
+    return sorted(d, key=d.get, reverse=True)[0:3]
+
+top3_0_50 = topthree(zerofifty_citycounts)
+top3_51_100 = topthree(fiftyhundred_citycounts)
+top3_101_200 = topthree(hundredtwohundred_citycounts)
+top3_200plus = topthree(twohundredplus_citycounts)
+
+TopCities = {'Price 0-50':top3_0_50, 'Price 51-100':top3_51_100,
+'Price 101-200':top3_101_200,'Price 201-10000':top3_200plus}
