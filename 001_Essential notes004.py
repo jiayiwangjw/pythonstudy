@@ -107,7 +107,7 @@ def count_bases(s):
 
 #problem4_Change Detection
 """
-006 计算平均数
+006 e0  计算平均数
 """
 def calc_mean(L):
     if L == []:
@@ -116,7 +116,7 @@ def calc_mean(L):
         return float(sum(L)/len(L))
 
 """
-007 CuSum 𝑆𝑡=max{0,𝑆𝑡−1+(𝑥𝑡−𝜇)}.    使用enumerate + append
+007 e1  CuSum 𝑆𝑡=max{0,𝑆𝑡−1+(𝑥𝑡−𝜇)}.    使用enumerate + append
 """
 #x = [1,1,2,4,2,4,6,8,9,1,2,3,1,2,1,5]
 #mu = 3
@@ -141,7 +141,7 @@ def cusum(x, mu):
 
 
 """
-008 输入一个数字到List，返回对应的index
+008 e2 输入一个数字到List，返回对应的index
 """
 CS = [0, 0, 0, 0, 1, 0, 1, 4, 9, 8, 12, 13, 12, 10, 9, 7, 9]
 alpha = 12
@@ -154,4 +154,28 @@ def get_index(CS, alpha):
      return -1
      
      
-     
+    
+"""
+009 e3 put it all together 给出一个数值，找出LIST里超过该数值的element的INDEX
+"""
+x = [0, 0, 0, 0, 1, 0, 1, 4, 9, 8, 12, 13, 12, 10, 9, 7, 9]
+alpha = 12
+assert raise_alarm(x, alpha) == (11, 13)
+
+def raise_alarm(x, alpha):
+   
+    mu = calc_mean(x) #x=[0, 0, 0, 0, 1, 0, 1, 4, 9, 8, 12, 13, 12, 10, 9, 7, 9], mu = 24.7
+    St = cusum(x, mu)
+    result = get_index(St, alpha)
+        
+    if result == -1:
+        return (-1, None)
+    else:
+        return (result, x[result])
+
+
+
+
+
+
+
