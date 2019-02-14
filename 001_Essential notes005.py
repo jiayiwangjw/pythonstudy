@@ -208,7 +208,7 @@ please. But if you hold it fit after the play Let his queen mother all alone ent
 be round with him. And I'll be placed so please you in the ear Of all their conference. If she find him not To England 
 send him or confine him where Your wisdom best shall think. It shall be so. Madness in great ones must not unwatch'd 
 go.
-
+"""
 
 hamsplits = []
 
@@ -224,7 +224,9 @@ def hamsplits__soln1():
 hamsplits__soln1()
 
 
+"""
 
+"""
 
 
 
