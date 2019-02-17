@@ -74,3 +74,24 @@ def decompress_vector(d, n=None):
         x[i] += v
     return x    
     
+
+"""
+005 找出字典中相同的INDEX    
+"""
+
+d1 == {'inds': [9, 9, 1, 9, 8, 1], 'vals': [0.28, 0.84, 0.71, 0.03, 0.04, 0.75]}
+d2 == {'inds': [0, 9, 9, 1, 3, 3, 9], 'vals': [0.26, 0.06, 0.46, 0.58, 0.42, 0.21, 0.53, 0.76]}
+
+find_common_inds(d1, d2) == [1, 9]
+
+
+def find_common_inds(d1, d2):
+    assert type(d1) is dict and 'inds' in d1 and 'vals' in d1
+    assert type(d2) is dict and 'inds' in d2 and 'vals' in d2
+    #
+    s1 = set(d1['inds'])
+    s2 = set(d2['inds'])
+    return list(s1 & s2)
+
+
+
